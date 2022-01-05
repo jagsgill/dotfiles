@@ -1,0 +1,9 @@
+# Ignore everything except whitelisted items
+*
+
+# Whitelisted files
+!.gitignore
+!.zshrc
+!LICENSE
+!DOTFILES-README.md
+
