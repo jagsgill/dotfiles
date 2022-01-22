@@ -1,7 +1,3 @@
-# Use vi line-editing mode.
-set -o vi
-
-# Options to enable/disable shell functionality.
 MACOS=true
 LINUX=false
 SDKMAN=true
