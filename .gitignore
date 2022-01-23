@@ -6,4 +6,8 @@
 !.zshrc
 !LICENSE
 !DOTFILES-README.md
+!.vimrc
+!.config/
+!.config/nvim
+!.config/nvim/*
 
