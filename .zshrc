@@ -1,22 +1,15 @@
-MACOS=true
-LINUX=false
-SDKMAN=true
-STARSHIP_PROMPT=true
-
-if $MACOS 
+if [ -e /opt/homebrew/bin/brew ]
 then
     eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
-if $STARSHIP_PROMPT
-then
-    eval "$(starship init zsh)"
-fi
+eval "$(starship init zsh)"
 
-if $SDKMAN
+PATH_SDKMAN="$HOME/.sdkman"
+if [ -e $PATH_SDKMAN ]
 then
     #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-    export SDKMAN_DIR="$HOME/.sdkman"
-    [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+    export SDKMAN_DIR=$PATH_SDKMAN
+    [[ -s $PATH_SDKMAN/bin/sdkman-init.sh ]] && source $PATH_SDKMAN/bin/sdkman-init.sh
 fi
 
