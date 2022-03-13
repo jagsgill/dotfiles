@@ -1,9 +1,16 @@
-if [ -e /opt/homebrew/bin/brew ]
+PATH_BREW=/opt/homebrew/bin/brew
+if [ -e "$PATH_BREW" ]
 then
     eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
 eval "$(starship init zsh)"
+
+PATH_ZSH_AUTOSUGGEST="$HOME/.zsh/zsh-autosuggestions"
+if [ -e $PATH_ZSH_AUTOSUGGEST ]
+then
+    source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+fi
 
 PATH_SDKMAN="$HOME/.sdkman"
 if [ -e $PATH_SDKMAN ]
