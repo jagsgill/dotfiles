@@ -8,6 +8,12 @@ Install [Neovim](https://github.com/neovim/neovim/wiki/Installing-Neovim). Make 
 
 Install [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md)
 
-Clone the dotfiles repo into your `HOME` directory.
+In your home directory, run 
+```
+git init 
+git remote add origin git@github.com:jagsgill/dotfiles.git
+git pull --set-upstream origin master
+```
+
 Run `source .zshrc` or open a new terminal.
 
