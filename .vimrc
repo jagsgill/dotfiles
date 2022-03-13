@@ -6,5 +6,5 @@
     set smarttab "tab key intelligently inserts whitespace to align to the above widths
 
 "Show whitespace
-    set listchars+=lead:⋅,trail:⋅ "use dot to show leading/trailing spaces
+    set listchars+=eol:$,tab:>-,trail:~,extends:>,precedes:<
     "set list "disabled by default
