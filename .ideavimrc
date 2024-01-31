@@ -1,0 +1,52 @@
+" Sources ============
+" https://github.com/JetBrains/ideavim/blob/master/doc/IdeaVim%20Plugins.md
+
+" Requirements ============
+    " IntelliJ IDEA with the IdeaVim plugin installed
+    " Additional plugins: IdeaVim-EasyMotion + AceJump, IdeaVim-Quickscope
+
+" Basic settings ============
+    " number of lines to leave on the screen before scrolling
+set scrolloff=10 
+    " displays the line numbers to the left of the document
+set linenumber 
+    " the Vim mode (normal, insert etc) and any commands you execute are displayed at the bottom of the screen
+set showmode 
+    " the Vim mode (normal, insert etc) and any commands you execute are displayed at the bottom of the screen
+set showcmd 
+    " the annoying audible bell sound to stop being emitted whenever you enter an invalid input
+set visualbell 
+    " IdeaVim shares its clipboard with the system clipboard
+set clipboard+=unnamed 
+
+" Search settings ============
+    " start searching as you type
+setincsearch 
+    " all of the search results are highlighted
+set hlsearch 
+
+" Leader key ============
+    " key we want to use as our leader key. This is a unique prefix key that we can use to define a bunch of custom commands. Spacebar is ideal for our leader key as it is not used by any existing commands, has no use in Vim’s normal mode, and is accessible by both hands. Some plugins depend on the leader key being defined prior to the plugins being configured, so define it early in the config.
+let mapleader = " " 
+
+" Plugins ============
+    " Surround is already bundled with native IdeaVim, you simply need to enable it. Surround lets you change the ‘surrounds’ of a block of text.
+set surround 
+    " Highlighted yank is already bundled as part of IdeaVim. When you yank a character, word, or line, it briefly highlights the content you’ve just yanked.
+set highlightedyank 
+    " NerdTree is bundled with IdeaVim, and allows for Vim-like control over the file explorer. You can use the hjkl keys
+set nerdtree 
+    " highlights unique characters in each word on a line, making it easier/quicker to navigate using f/F/t/T
+set quickscope
+
+" Easymotion ============
+    " revolutionises how you move around in Vim. Must be installed separately alongside dependency AceJump
+set easymotion 
+    " do not timeout if only a partial command has been entered
+set notimeout 
+    " increase the timeoutlen default: 1000), don't add space around the equal sign
+set timeoutlen=5000
+
+map <leader>x :NERDTreeToggle<CR>
+
+
