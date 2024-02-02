@@ -6,11 +6,20 @@ fi
 
 eval "$(starship init zsh)"
 
-PATH_ZSH_AUTOSUGGEST="$HOME/.zsh/zsh-autosuggestions"
-if [ -e $PATH_ZSH_AUTOSUGGEST ]
-then
-    source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-fi
+zsh_autosuggestions_paths=(
+    "$HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh" # git clone destination
+    "/usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh" # common linux path
+    "/usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh" # another common linux path
+    "$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh" # homebrew path
+)
+
+# Attempt to load zsh-autosuggestions from known paths
+for p in "${zsh_autosuggestions_paths[@]}"; do
+    if [[ -f $p ]]; then
+        source "$p"
+        break
+    fi
+done
 
 PATH_SDKMAN="$HOME/.sdkman"
 if [ -e $PATH_SDKMAN ]
