@@ -6,7 +6,7 @@ On WSL, install the Windows-compatible font files to Windows Fonts. Then in Wind
 
 Install [Neovim](https://github.com/neovim/neovim/wiki/Installing-Neovim). Make sure `nvim` is on the `PATH`.
 
-Install [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md)
+Install [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md), [zsh-autocomplete](https://github.com/marlonrichert/zsh-autocomplete), and [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md).
 
 In your home directory, run 
 ```

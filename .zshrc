@@ -1,24 +1,36 @@
-PATH_BREW=/opt/homebrew/bin/brew
-if [ -e "$PATH_BREW" ]
-then
-    eval "$(/opt/homebrew/bin/brew shellenv)"
+PATH_BREW=$(which brew)
+if [ -e "$PATH_BREW" ]; then
+    eval "$(brew shellenv)"
 fi
 
 eval "$(starship init zsh)"
 
-zsh_autosuggestions_paths=(
-    "$HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh" # git clone destination
-    "/usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh" # common linux path
-    "/usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh" # another common linux path
-    "$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh" # homebrew path
+zsh_plugins=(
+    "zsh-autosuggestions"
+    "zsh-autocomplete"
+    "zsh-syntax-highlighting"
 )
 
-# Attempt to load zsh-autosuggestions from known paths
-for p in "${zsh_autosuggestions_paths[@]}"; do
-    if [[ -f $p ]]; then
-        source "$p"
-        break
+# Attempt to load zsh plugins from known paths
+for name in "${zsh_plugins[@]}"; do
+    plugin_paths=(
+        "$HOME/.zsh/$name/$name.zsh"             # git clone destination
+        "/usr/local/share/$name/$name.zsh"       # common linux path
+        "/usr/share/$name/$name.zsh"             # another common linux path
+    )
+    if [ -e "$PATH_BREW" ]; then
+        brew_prefix=$(brew --prefix)
+        plugin_paths+=("$brew_prefix/share/$name/$name.zsh")
+        plugin_paths+=("$brew_prefix/share/$name/$name.plugin.zsh")
     fi
+
+    for pluginpath in "${plugin_paths[@]}"; do
+        if [ -e "$pluginpath" ]; then
+            # echo "Sourcing zsh plugin $name from $pluginpath"
+            source "$pluginpath"
+            break
+        fi
+    done
 done
 
 PATH_SDKMAN="$HOME/.sdkman"
