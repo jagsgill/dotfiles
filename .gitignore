@@ -11,4 +11,6 @@
 !.config/
 !.config/nvim
 !.config/nvim/*
+!dotfiles-scripts
+!dotfiles-scripts/*
 

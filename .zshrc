@@ -33,11 +33,4 @@ for name in "${zsh_plugins[@]}"; do
     done
 done
 
-PATH_SDKMAN="$HOME/.sdkman"
-if [ -e $PATH_SDKMAN ]
-then
-    #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-    export SDKMAN_DIR=$PATH_SDKMAN
-    [[ -s $PATH_SDKMAN/bin/sdkman-init.sh ]] && source $PATH_SDKMAN/bin/sdkman-init.sh
-fi
-
+source ./scripts/java-helpers.sh
