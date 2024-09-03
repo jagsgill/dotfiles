@@ -33,4 +33,4 @@ for name in "${zsh_plugins[@]}"; do
     done
 done
 
-source ./scripts/java-helpers.sh
+source ./dotfiles-scripts/java-helpers.sh
