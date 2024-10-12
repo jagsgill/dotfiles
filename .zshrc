@@ -1,3 +1,7 @@
+PATH_BREW_BIN=/opt/homebrew/bin
+if [ -d "$PATH_BREW_BIN" ]; then
+    export PATH="/opt/homebrew/bin:$PATH"
+fi
 PATH_BREW=$(which brew)
 if [ -e "$PATH_BREW" ]; then
     eval "$(brew shellenv)"
