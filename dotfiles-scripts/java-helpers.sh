@@ -1,17 +1,20 @@
 # Helper functions for switching JDKs in a shell.
 # Assumes macOS.
 
-PATH_JAVA_PREFIX_MACOS="/Library/Java/JavaVirtualMachines"
+PATHS_JAVA_PREFIX_MACOS=("/Library/Java/JavaVirtualMachines" "$HOME/Library/Java/JavaVirtualMachines")
+
 list-java() {
-    if [ -e "$PATH_JAVA_PREFIX_MACOS" ]; then
-        ls "$PATH_JAVA_PREFIX_MACOS"
-    fi
+    for P in "${PATHS_JAVA_PREFIX_MACOS[@]}"; do
+        if [ -e "$P" ]; then
+            find "$P" -d 1
+        fi
+    done
 }
 
 set-java() {
-    jdk_name="$1"
+    jdk_path="$1"
     original_path="$PATH"
-    mac_jdk_home="$PATH_JAVA_PREFIX_MACOS/$jdk_name/Contents/Home"
+    mac_jdk_home="$jdk_path/Contents/Home"
     mac_jdk_path="$mac_jdk_home/bin"
     if [ -e "$mac_jdk_path" ]; then 
         while [ ! $(which java) = "$mac_jdk_path/java" ]; do
