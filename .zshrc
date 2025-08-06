@@ -37,4 +37,6 @@ for name in "${zsh_plugins[@]}"; do
     done
 done
 
-source ./dotfiles-scripts/java-helpers.sh
+# TODO make it not silently fail e.g. set-java /Library/Java/JavaVirtualMachines/jdk-17.0.10+7-temurin
+# Include timestamps in shell prompt
+source ~/dotfiles-scripts/java-helpers.sh
