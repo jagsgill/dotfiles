@@ -40,3 +40,7 @@ done
 # TODO make it not silently fail e.g. set-java /Library/Java/JavaVirtualMachines/jdk-17.0.10+7-temurin
 # Include timestamps in shell prompt
 source ~/dotfiles-scripts/java-helpers.sh
+
+if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
+
