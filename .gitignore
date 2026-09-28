@@ -13,4 +13,5 @@
 !.config/nvim/*
 !dotfiles-scripts
 !dotfiles-scripts/*
+!ssp-env.sh
 
