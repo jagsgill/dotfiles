@@ -16,4 +16,6 @@
 !ssp-env.sh
 !.ssh/
 !.ssh/config
+!.pip/
+!.pip/pip.conf
 
