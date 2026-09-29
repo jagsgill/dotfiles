@@ -14,4 +14,6 @@
 !dotfiles-scripts
 !dotfiles-scripts/*
 !ssp-env.sh
+!.ssh/
+!.ssh/config
 
